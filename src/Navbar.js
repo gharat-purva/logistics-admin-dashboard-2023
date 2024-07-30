@@ -1,4 +1,3 @@
-//
 import React, { useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBell, faCaretDown } from '@fortawesome/free-solid-svg-icons';
@@ -39,9 +38,8 @@ const Navbar = () => {
             <div className="hidden md:block">
               <div className="ml-10 flex items-baseline space-x-4">
                 {navItems.map((item) => (
-                  <a
+                  <button
                     key={item}
-                    href="#"
                     onClick={() => handleNavClick(item)}
                     className={`px-3 py-2 rounded-sm text-sm font-medium ${
                       active === item
@@ -50,7 +48,7 @@ const Navbar = () => {
                     }`}
                   >
                     {item}
-                  </a>
+                  </button>
                 ))}
               </div>
             </div>
