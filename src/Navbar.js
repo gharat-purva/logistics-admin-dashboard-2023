@@ -1,9 +1,14 @@
+//
 import React, { useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBell, faCaretDown } from '@fortawesome/free-solid-svg-icons';
+import { useMediaQuery } from 'react-responsive';
+import logoDesktop from './assets/logoDesktop.png';
+import logoMobile from './assets/logoMobile.png';
 
 const Navbar = () => {
   const [active, setActive] = useState('My Booking');
+  const isMobile = useMediaQuery({ maxWidth: 767 });
 
   const handleNavClick = (navItem) => {
     setActive(navItem);
@@ -23,10 +28,13 @@ const Navbar = () => {
         <div className="flex items-center justify-between h-16">
           <div className="flex items-center">
             <div className="flex-shrink-0">
-              <span className="text-xl font-bold">
-                <span className="text-turbo-blue">LOOGIS</span>
-                <span className="text-orange">TICS</span>
-              </span>
+              <div className="bg-white p-1 rounded">
+                {isMobile ? (
+                  <img src={logoMobile} alt="Logo" style={{ width: '25px' }} />
+                ) : (
+                  <img src={logoDesktop} alt="Logo" style={{ width: '150px' }} />
+                )}
+              </div>
             </div>
             <div className="hidden md:block">
               <div className="ml-10 flex items-baseline space-x-4">
